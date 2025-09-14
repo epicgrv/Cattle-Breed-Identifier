@@ -98,3 +98,7 @@ export interface SchemeData {
   };
   link: string;
 }
+
+export interface User {
+  phone: string;
+}

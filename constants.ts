@@ -88,6 +88,7 @@ const englishTexts = {
   submitting: 'Submitting',
   feedbackSubmitted: 'Submitted!',
   feedbackSuccessText: 'Thank you for your feedback!',
+  logout: 'Logout',
 
   // Registration Form
   registrationFormTitle: 'Register Your Animal',
@@ -100,6 +101,17 @@ const englishTexts = {
   registrationSuccessTitle: 'Registration Successful!',
   registrationSuccessText: 'Your animal has been successfully registered with the BPA platform.',
   close: 'Close',
+
+  // Auth
+  authTitle: 'Welcome to Pashu Pehchan',
+  authSubtitle: 'Sign in or create an account to continue',
+  authSendOtp: 'Send OTP',
+  authVerifyOtp: 'Verify OTP',
+  authPhonePlaceholder: 'Phone Number',
+  authOtpInfo: 'For demo, use OTP:',
+  authChangePhone: 'Change phone number',
+  authInvalidPhone: 'Please enter a valid 10-digit phone number.',
+  authInvalidOtp: 'Invalid OTP. Please try again.',
 };
 
 const hindiTexts = {
@@ -179,6 +191,7 @@ const hindiTexts = {
     submitting: 'भेजा जा रहा है',
     feedbackSubmitted: 'भेज दिया गया!',
     feedbackSuccessText: 'आपकी प्रतिक्रिया के लिए धन्यवाद!',
+    logout: 'लॉग आउट',
     
     // Registration Form
     registrationFormTitle: 'अपने पशु को पंजीकृत करें',
@@ -191,6 +204,17 @@ const hindiTexts = {
     registrationSuccessTitle: 'पंजीकरण सफल!',
     registrationSuccessText: 'आपके पशु को बीपीए प्लेटफॉर्म पर सफलतापूर्वक पंजीकृत कर दिया गया है।',
     close: 'बंद करें',
+
+    // Auth
+    authTitle: 'पशु पहचान में आपका स्वागत है',
+    authSubtitle: 'जारी रखने के लिए साइन इन करें या खाता बनाएं',
+    authSendOtp: 'ओटीपी भेजें',
+    authVerifyOtp: 'ओटीपी सत्यापित करें',
+    authPhonePlaceholder: 'फ़ोन नंबर',
+    authOtpInfo: 'डेमो के लिए, ओटीपी का उपयोग करें:',
+    authChangePhone: 'फ़ोन नंबर बदलें',
+    authInvalidPhone: 'कृपया एक मान्य 10-अंकीय फ़ोन नंबर दर्ज करें।',
+    authInvalidOtp: 'अमान्य ओटीपी। कृपया पुन: प्रयास करें।',
 };
 
 const marathiTexts = {
@@ -259,6 +283,7 @@ const marathiTexts = {
     submitting: 'सबमिट करत आहे',
     feedbackSubmitted: 'सबमिट केले!',
     feedbackSuccessText: 'तुमच्या अभिप्रायाबद्दल धन्यवाद!',
+    logout: 'लॉगआउट करा',
     registrationFormTitle: 'तुमच्या प्राण्याची नोंदणी करा',
     ownerNameLabel: 'मालकाचे नाव',
     ownerContactLabel: 'मालकाचा संपर्क',
@@ -269,6 +294,15 @@ const marathiTexts = {
     registrationSuccessTitle: 'नोंदणी यशस्वी!',
     registrationSuccessText: 'तुमचा प्राणी BPA प्लॅटफॉर्मवर यशस्वीरित्या नोंदणीकृत झाला आहे.',
     close: 'बंद करा',
+    authTitle: 'पशु ओळख मध्ये आपले स्वागत आहे',
+    authSubtitle: 'सुरू ठेवण्यासाठी साइन इन करा किंवा खाते तयार करा',
+    authSendOtp: 'ओटीपी पाठवा',
+    authVerifyOtp: 'ओटीपी सत्यापित करा',
+    authPhonePlaceholder: 'फोन नंबर',
+    authOtpInfo: 'डेमोसाठी, ओटीपी वापरा:',
+    authChangePhone: 'फोन नंबर बदला',
+    authInvalidPhone: 'कृपया वैध १०-अंकी फोन नंबर प्रविष्ट करा.',
+    authInvalidOtp: 'अवैध ओटीपी. कृपया पुन्हा प्रयत्न करा.',
 };
 
 const gujaratiTexts = {
@@ -337,6 +371,7 @@ const gujaratiTexts = {
     submitting: 'સબમિટ કરી રહ્યું છે',
     feedbackSubmitted: 'સબમિટ કર્યું!',
     feedbackSuccessText: 'તમારા પ્રતિસાદ બદલ આભાર!',
+    logout: 'લૉગઆઉટ કરો',
     registrationFormTitle: 'તમારા પશુની નોંધણી કરો',
     ownerNameLabel: 'માલિકનું નામ',
     ownerContactLabel: 'માલિકનો સંપર્ક',
@@ -347,6 +382,15 @@ const gujaratiTexts = {
     registrationSuccessTitle: 'નોંધણી સફળ!',
     registrationSuccessText: 'તમારું પશુ BPA પ્લેટફોર્મ પર સફળતાપૂર્વક નોંધાયેલું છે.',
     close: 'બંધ કરો',
+    authTitle: 'પશુ પહચાનમાં આપનું સ્વાગત છે',
+    authSubtitle: 'ચાલુ રાખવા માટે સાઇન ઇન કરો અથવા એકાઉન્ટ બનાવો',
+    authSendOtp: 'OTP મોકલો',
+    authVerifyOtp: 'OTP ચકાસો',
+    authPhonePlaceholder: 'ફોન નંબર',
+    authOtpInfo: 'ડેમો માટે, OTP નો ઉપયોગ કરો:',
+    authChangePhone: 'ફોન નંબર બદલો',
+    authInvalidPhone: 'કૃપા કરીને માન્ય ૧૦-અંકનો ફોન નંબર દાખલ કરો.',
+    authInvalidOtp: 'અમાન્ય OTP. કૃપા કરીને ફરી પ્રયાસ કરો.',
 };
 
 const teluguTexts = {
@@ -415,6 +459,7 @@ const teluguTexts = {
     submitting: 'సమర్పిస్తోంది',
     feedbackSubmitted: 'సమర్పించబడింది!',
     feedbackSuccessText: 'మీ అభిప్రాయానికి ధన్యవాదాలు!',
+    logout: 'లాగ్ అవుట్',
     registrationFormTitle: 'మీ జంతువును నమోదు చేయండి',
     ownerNameLabel: 'యజమాని పేరు',
     ownerContactLabel: 'యజమాని సంప్రదింపు',
@@ -425,6 +470,15 @@ const teluguTexts = {
     registrationSuccessTitle: 'నమోదు విజయవంతమైంది!',
     registrationSuccessText: 'మీ జంతువు BPA ప్లాట్‌ఫారమ్‌లో విజయవంతంగా నమోదు చేయబడింది.',
     close: 'మూసివేయండి',
+    authTitle: 'పశు పెహచాన్‌కు స్వాగతం',
+    authSubtitle: 'కొనసాగించడానికి సైన్ ఇన్ చేయండి లేదా ఖాతాను సృష్టించండి',
+    authSendOtp: 'OTP పంపండి',
+    authVerifyOtp: 'OTPని ధృవీకరించండి',
+    authPhonePlaceholder: 'ఫోన్ నంబర్',
+    authOtpInfo: 'డెమో కోసం, OTPని ఉపయోగించండి:',
+    authChangePhone: 'ఫోన్ నంబర్‌ను మార్చండి',
+    authInvalidPhone: 'దయచేసి చెల్లుబాటు అయ్యే 10-అంకెల ఫోన్ నంబర్‌ను నమోదు చేయండి.',
+    authInvalidOtp: 'చెల్లని OTP. దయచేసి మళ్లీ ప్రయత్నించండి.',
 };
 
 const malayalamTexts = {
@@ -493,6 +547,7 @@ const malayalamTexts = {
     submitting: 'സമർപ്പിക്കുന്നു',
     feedbackSubmitted: 'സമർപ്പിച്ചു!',
     feedbackSuccessText: 'നിങ്ങളുടെ അഭിപ്രായത്തിന് നന്ദി!',
+    logout: 'ലോഗൗട്ട് ചെയ്യുക',
     registrationFormTitle: 'നിങ്ങളുടെ മൃഗത്തെ രജിസ്റ്റർ ചെയ്യുക',
     ownerNameLabel: 'ഉടമയുടെ പേര്',
     ownerContactLabel: 'ഉടമയുടെ കോൺടാക്റ്റ്',
@@ -503,6 +558,15 @@ const malayalamTexts = {
     registrationSuccessTitle: 'രജിസ്ട്രേഷൻ വിജയിച്ചു!',
     registrationSuccessText: 'നിങ്ങളുടെ മൃഗത്തെ ബിപിഎ പ്ലാറ്റ്‌ഫോമിൽ വിജയകരമായി രജിസ്റ്റർ ചെയ്തു.',
     close: 'അടയ്ക്കുക',
+    authTitle: 'പശു പെഹചാനിലേക്ക് സ്വാഗതം',
+    authSubtitle: 'തുടരുന്നതിന് സൈൻ ഇൻ ചെയ്യുക അല്ലെങ്കിൽ ഒരു അക്കൗണ്ട് ഉണ്ടാക്കുക',
+    authSendOtp: 'ഒടിപി അയയ്ക്കുക',
+    authVerifyOtp: 'ഒടിപി പരിശോധിക്കുക',
+    authPhonePlaceholder: 'ഫോൺ നമ്പർ',
+    authOtpInfo: 'ഡെമോയ്ക്കായി, ഒടിപി ഉപയോഗിക്കുക:',
+    authChangePhone: 'ഫോൺ നമ്പർ മാറ്റുക',
+    authInvalidPhone: 'ദയവായി സാധുവായ 10 അക്ക ഫോൺ നമ്പർ നൽകുക.',
+    authInvalidOtp: 'അസാധുവായ ഒടിപി. ദയവായി വീണ്ടും ശ്രമിക്കുക.',
 };
 
 const tamilTexts = {
@@ -571,6 +635,7 @@ const tamilTexts = {
     submitting: 'சமர்ப்பிக்கிறது',
     feedbackSubmitted: 'சமர்ப்பிக்கப்பட்டது!',
     feedbackSuccessText: 'உங்கள் கருத்திற்கு நன்றி!',
+    logout: 'வெளியேறு',
     registrationFormTitle: 'உங்கள் விலங்கை பதிவு செய்யுங்கள்',
     ownerNameLabel: 'உரிமையாளர் பெயர்',
     ownerContactLabel: 'உரிமையாளர் தொடர்பு',
@@ -581,6 +646,15 @@ const tamilTexts = {
     registrationSuccessTitle: 'பதிவு வெற்றி!',
     registrationSuccessText: 'உங்கள் விலங்கு BPA தளத்தில் வெற்றிகரமாக பதிவு செய்யப்பட்டுள்ளது.',
     close: 'மூடு',
+    authTitle: 'பசு பெஹचानக்கு வரவேற்கிறோம்',
+    authSubtitle: 'தொடர உள்நுழையவும் அல்லது கணக்கை உருவாக்கவும்',
+    authSendOtp: 'OTP அனுப்பு',
+    authVerifyOtp: 'OTP சரிபார்க்கவும்',
+    authPhonePlaceholder: 'தொலைபேசி எண்',
+    authOtpInfo: 'டெமோவிற்கு, OTP ஐப் பயன்படுத்தவும்:',
+    authChangePhone: 'தொலைபேசி எண்ணை மாற்றவும்',
+    authInvalidPhone: 'தயவுசெய்து சரியான 10 இலக்க தொலைபேசி எண்ணை உள்ளிடவும்.',
+    authInvalidOtp: 'தவறான OTP. దయచేసి మళ్లీ ప్రయత్నించండి.',
 };
 
 const kannadaTexts = {
@@ -649,6 +723,7 @@ const kannadaTexts = {
     submitting: 'ಸಲ್ಲಿಸಲಾಗುತ್ತಿದೆ',
     feedbackSubmitted: 'ಸಲ್ಲಿಸಲಾಗಿದೆ!',
     feedbackSuccessText: 'ನಿಮ್ಮ ಪ್ರತಿಕ್ರಿಯೆಗೆ ಧನ್ಯವಾದಗಳು!',
+    logout: 'ಲಾಗ್ ಔಟ್ ಮಾಡಿ',
     registrationFormTitle: 'ನಿಮ್ಮ ಪ್ರಾಣಿಯನ್ನು ನೋಂದಾಯಿಸಿ',
     ownerNameLabel: 'ಮಾಲೀಕರ ಹೆಸರು',
     ownerContactLabel: 'ಮಾಲೀಕರ ಸಂಪರ್ಕ',
@@ -659,6 +734,15 @@ const kannadaTexts = {
     registrationSuccessTitle: 'ನೋಂದಣಿ ಯಶಸ್ವಿಯಾಗಿದೆ!',
     registrationSuccessText: 'ನಿಮ್ಮ ಪ್ರಾಣಿಯನ್ನು ಬಿಪಿಎ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್‌ನಲ್ಲಿ ಯಶಸ್ವಿಯಾಗಿ ನೋಂದಾಯಿಸಲಾಗಿದೆ.',
     close: 'ಮುಚ್ಚಿ',
+    authTitle: 'ಪಶು ಪೆಹಚಾನ್‌ಗೆ ಸ್ವಾಗತ',
+    authSubtitle: 'ಮುಂದುವರಿಯಲು ಸೈನ್ ಇನ್ ಮಾಡಿ ಅಥವಾ ಖಾತೆಯನ್ನು ರಚಿಸಿ',
+    authSendOtp: 'ಒಟಿಪಿ ಕಳುಹಿಸಿ',
+    authVerifyOtp: 'ಒಟಿಪಿ ಪರಿಶೀಲಿಸಿ',
+    authPhonePlaceholder: 'ದೂರವಾಣಿ ಸಂಖ್ಯೆ',
+    authOtpInfo: 'ಡೆಮೊಗಾಗಿ, ಒಟಿಪಿ ಬಳಸಿ:',
+    authChangePhone: 'ದೂರವಾಣಿ ಸಂಖ್ಯೆಯನ್ನು ಬದಲಾಯಿಸಿ',
+    authInvalidPhone: 'ದಯವಿಟ್ಟು ಮಾನ್ಯ 10-ಅಂಕಿಯ ದೂರವಾಣಿ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ.',
+    authInvalidOtp: 'ಅಮಾನ್ಯ ಒಟಿಪಿ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
 };
 
 export const TEXTS = {

@@ -1,8 +1,8 @@
 
 import React, { useState } from 'react';
 import { TEXTS, LANGUAGES } from '../constants';
-import { Language, Theme } from '../types';
-import { SunIcon, MoonIcon, SpinnerIcon, CheckCircleIcon } from './icons';
+import { Language, Theme, User } from '../types';
+import { SunIcon, MoonIcon, SpinnerIcon, CheckCircleIcon, ArrowLeftOnRectangleIcon } from './icons';
 
 interface ProfileViewProps {
   language: Language;
@@ -11,9 +11,11 @@ interface ProfileViewProps {
   setTheme: (theme: Theme) => void;
   isVoiceGuidanceEnabled: boolean;
   setVoiceGuidanceEnabled: (enabled: boolean) => void;
+  currentUser: User | null;
+  onLogout: () => void;
 }
 
-const ProfileView: React.FC<ProfileViewProps> = ({ language, setLanguage, theme, setTheme, isVoiceGuidanceEnabled, setVoiceGuidanceEnabled }) => {
+const ProfileView: React.FC<ProfileViewProps> = ({ language, setLanguage, theme, setTheme, isVoiceGuidanceEnabled, setVoiceGuidanceEnabled, currentUser, onLogout }) => {
   const T = TEXTS[language];
   const [feedback, setFeedback] = useState('');
   const [isSubmittingFeedback, setIsSubmittingFeedback] = useState(false);
@@ -58,6 +60,24 @@ const ProfileView: React.FC<ProfileViewProps> = ({ language, setLanguage, theme,
     <div className="animate-fade-in-up space-y-8 max-w-4xl mx-auto">
       <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-100">{T.profileTitle}</h1>
       
+      {currentUser && (
+        <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div>
+                  <h2 className="text-xl font-bold text-gray-800 dark:text-gray-100">User Details</h2>
+                  <p className="text-gray-500 dark:text-gray-400 mt-1">Logged in as: <span className="font-semibold text-gray-700 dark:text-gray-200">{currentUser.phone}</span></p>
+              </div>
+              <button
+                onClick={onLogout}
+                className="w-full sm:w-auto bg-red-600 text-white font-bold py-2.5 px-6 rounded-lg hover:bg-red-700 flex items-center justify-center gap-2 transition-transform transform hover:scale-105"
+              >
+                <ArrowLeftOnRectangleIcon className="w-5 h-5"/>
+                <span>{T.logout}</span>
+              </button>
+          </div>
+        </div>
+      )}
+
       <SettingCard title={T.appearanceTitle} description={T.themeLabel}>
         <div className="flex flex-col sm:flex-row gap-4">
             <ThemeButton label={T.themeLight} value={Theme.LIGHT} icon={<SunIcon className="w-6 h-6"/>} />
