@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useRef } from 'react';
-import { UploadIcon } from './icons';
+import { UploadIcon, CameraIcon } from './icons';
 import { TEXTS } from '../constants';
 import { Language } from '../types';
 
@@ -17,10 +17,22 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ onImageUpload, language }
     if (file) {
       onImageUpload(file);
     }
+    // Reset value to allow capturing a new photo if the user cancels and tries again
+    event.target.value = '';
   };
 
-  const handleButtonClick = () => {
-    fileInputRef.current?.click();
+  const handleSelectClick = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.removeAttribute('capture');
+      fileInputRef.current.click();
+    }
+  };
+
+  const handleCaptureClick = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.setAttribute('capture', 'environment');
+      fileInputRef.current.click();
+    }
   };
 
   const onDragOver = useCallback((event: React.DragEvent<HTMLDivElement>) => {
@@ -52,7 +64,7 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ onImageUpload, language }
       >
         <div
           className="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-10 hover:border-green-500 dark:hover:border-green-400 transition-colors cursor-pointer flex flex-col items-center justify-center"
-          onClick={handleButtonClick}
+          onClick={handleSelectClick}
         >
           <div className="bg-green-100 dark:bg-green-900/50 p-4 rounded-full">
             <UploadIcon className="w-12 h-12 text-green-600 dark:text-green-400" />
@@ -68,12 +80,25 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ onImageUpload, language }
           accept="image/*"
           className="hidden"
         />
-        <button
-          onClick={handleButtonClick}
-          className="mt-8 w-full bg-green-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-transform transform hover:scale-105 dark:focus:ring-offset-gray-800"
-        >
-          {TEXTS[language].uploadButton}
-        </button>
+        <div className="mt-8 w-full flex flex-col items-center gap-3">
+            <button
+              onClick={handleSelectClick}
+              className="w-full bg-green-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-transform transform hover:scale-105 dark:focus:ring-offset-gray-800 flex items-center justify-center gap-2"
+            >
+              <UploadIcon className="w-5 h-5" />
+              <span>{TEXTS[language].uploadButton}</span>
+            </button>
+            
+            <div className="text-gray-500 dark:text-gray-400 font-medium text-sm">{TEXTS[language].orText}</div>
+
+            <button
+              onClick={handleCaptureClick}
+              className="w-full bg-gray-700 text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-transform transform hover:scale-105 dark:bg-gray-600 dark:hover:bg-gray-500 dark:focus:ring-offset-gray-800 flex items-center justify-center gap-2"
+            >
+              <CameraIcon className="w-5 h-5" />
+              <span>{TEXTS[language].captureButton}</span>
+            </button>
+        </div>
       </div>
     </div>
   );

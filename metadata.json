@@ -1,5 +1,7 @@
 {
   "name": "Pashu Pehchan: AI Cattle Breed Identifier",
   "description": "A mobile-first AI application to identify Indian cattle and buffalo breeds from a photo. It uses a hybrid AI and web-search approach to provide accurate results, which can be confirmed by the user. Features include multilingual support and voice-guided feedback.",
-  "requestFramePermissions": []
+  "requestFramePermissions": [
+    "camera"
+  ]
 }

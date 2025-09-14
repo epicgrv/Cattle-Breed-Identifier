@@ -1,5 +1,5 @@
 import React from 'react';
-import { Logo, CloseIcon, SparklesIcon, BarChartIcon, UserIcon } from './icons';
+import { ChewingCowIcon, CloseIcon, SparklesIcon, BarChartIcon, UserIcon, DocumentTextIcon } from './icons';
 import { TEXTS } from '../constants';
 import { Language, View } from '../types';
 
@@ -41,7 +41,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen, currentView, setCu
     <div className="flex flex-col h-full bg-white dark:bg-gray-800">
       <div className="flex items-center justify-between h-16 px-4 border-b border-gray-200 dark:border-gray-700">
          <div className="flex items-center space-x-3">
-            <Logo className="h-8 w-8" />
+            <ChewingCowIcon className="h-8 w-8" />
             <span className="font-bold text-gray-800 dark:text-gray-100">{TEXTS[language].title}</span>
         </div>
         <button
@@ -70,6 +70,12 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen, currentView, setCu
             label={TEXTS[language].navAnalytics}
             isActive={currentView === View.ANALYTICS}
             onClick={() => handleNavigation(View.ANALYTICS)}
+        />
+        <NavLink 
+            icon={<DocumentTextIcon className="h-5 w-5" />}
+            label={TEXTS[language].navSchemes}
+            isActive={currentView === View.SCHEMES}
+            onClick={() => handleNavigation(View.SCHEMES)}
         />
         <NavLink
             icon={<UserIcon className="h-5 w-5" />}

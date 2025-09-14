@@ -1,3 +1,4 @@
+
 import { GoogleGenAI, Type } from "@google/genai";
 import type { AIResult, AnalysisResult } from '../types';
 
@@ -44,7 +45,7 @@ export const analyzeImage = async (
     contents: {
       parts: [
         imagePart,
-        { text: `Analyze this image of a ${species.toLowerCase()}. Identify the single most likely Indian breed. Provide its name, a confidence level ('High', 'Medium', or 'Low'), and a brief description.` }
+        { text: `Analyze this image of a ${species.toLowerCase()}. Identify the single most likely breed, which could be an Indian breed or a common foreign breed found in India (like Jersey or Holstein Friesian). Provide its name, a confidence level ('High', 'Medium', or 'Low'), and details about it: locations where it is found (as an array of strings), its milk capacity (e.g., '1500-2500 kg per lactation'), milk quality (fat and protein percentage as strings), and an overall rating out of 5 (as an integer).` }
       ],
     },
     config: {
@@ -54,9 +55,29 @@ export const analyzeImage = async (
         properties: {
           name: { type: Type.STRING, description: 'Name of the breed' },
           confidence: { type: Type.STRING, description: "Confidence level: 'High', 'Medium', or 'Low'" },
-          description: { type: Type.STRING, description: 'A brief description of the breed' },
+          locations: {
+            type: Type.ARRAY,
+            items: { type: Type.STRING },
+            description: "Primary regions or states where the breed is found."
+          },
+          milkCapacity: {
+            type: Type.STRING,
+            description: "Typical milk yield, e.g., '1500-2500 kg per lactation'."
+          },
+          milkQuality: {
+            type: Type.OBJECT,
+            properties: {
+              fat: { type: Type.STRING, description: "Fat percentage, e.g., '4.0-5.0%'." },
+              protein: { type: Type.STRING, description: "Protein percentage, e.g., '3.2-3.5%'." }
+            },
+            required: ['fat', 'protein']
+          },
+          rating: {
+            type: Type.INTEGER,
+            description: "Overall breed quality rating from 1 to 5."
+          }
         },
-        required: ['name', 'confidence', 'description'],
+        required: ['name', 'confidence', 'locations', 'milkCapacity', 'milkQuality', 'rating'],
       },
     },
   });
