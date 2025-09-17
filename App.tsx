@@ -232,8 +232,9 @@ interface AuthScreenProps {
 }
 
 const AuthScreen: React.FC<AuthScreenProps> = ({ onLogin, language }) => {
-  const [step, setStep] = useState<'phone' | 'otp'>('phone');
+  const [step, setStep] = useState<'phone' | 'name' | 'otp'>('phone');
   const [phone, setPhone] = useState('');
+  const [name, setName] = useState('');
   const [otp, setOtp] = useState('');
   const [error, setError] = useState('');
   const T = TEXTS[language];
@@ -242,9 +243,19 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ onLogin, language }) => {
     e.preventDefault();
     if (phone.length === 10) {
       setError('');
-      setStep('otp');
+      setStep('name');
     } else {
       setError(T.authInvalidPhone);
+    }
+  };
+
+  const handleNameSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (name.trim()) {
+      setError('');
+      setStep('otp');
+    } else {
+      setError(T.authInvalidName);
     }
   };
   
@@ -252,7 +263,7 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ onLogin, language }) => {
     e.preventDefault();
     if (otp === '1234') {
       setError('');
-      onLogin({ phone });
+      onLogin({ phone, name });
     } else {
       setError(T.authInvalidOtp);
     }
@@ -265,6 +276,106 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ onLogin, language }) => {
     }
   };
 
+  const renderContent = () => {
+    if (step === 'phone') {
+      return (
+        <form onSubmit={handlePhoneSubmit} className="mt-8 space-y-6">
+            <div>
+                <label htmlFor="phone" className="sr-only">{T.authPhonePlaceholder}</label>
+                <div className="relative">
+                     <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500 dark:text-gray-400">+91</span>
+                     <input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        autoComplete="tel"
+                        required
+                        value={phone}
+                        onChange={handlePhoneChange}
+                        className="w-full pl-12 pr-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-200 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500"
+                        placeholder={T.authPhonePlaceholder}
+                    />
+                </div>
+            </div>
+            {error && <p className="text-sm text-red-500">{error}</p>}
+            <button
+                type="submit"
+                disabled={phone.length !== 10}
+                className="w-full bg-green-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-700 disabled:bg-gray-400 dark:disabled:bg-gray-500 disabled:cursor-not-allowed flex items-center justify-center transition"
+            >
+                {T.authSendOtp}
+            </button>
+        </form>
+      );
+    }
+
+    if (step === 'name') {
+        return (
+            <form onSubmit={handleNameSubmit} className="mt-8 space-y-6">
+                <div>
+                    <label htmlFor="name" className="sr-only">{T.authNamePlaceholder}</label>
+                    <input
+                        id="name"
+                        name="name"
+                        type="text"
+                        autoComplete="name"
+                        required
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-200 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500"
+                        placeholder={T.authNamePlaceholder}
+                    />
+                </div>
+                {error && <p className="text-sm text-red-500">{error}</p>}
+                <button
+                    type="submit"
+                    disabled={!name.trim()}
+                    className="w-full bg-green-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-700 disabled:bg-gray-400 dark:disabled:bg-gray-500 disabled:cursor-not-allowed flex items-center justify-center transition"
+                >
+                    {T.authContinue}
+                </button>
+                 <button type="button" onClick={() => { setStep('phone'); setError(''); }} className="text-sm font-semibold text-gray-600 dark:text-gray-300 hover:underline">
+                    {T.authChangePhone}
+                 </button>
+            </form>
+        );
+    }
+    
+    if (step === 'otp') {
+      return (
+        <form onSubmit={handleOtpSubmit} className="mt-8 space-y-6">
+           <div>
+               <label htmlFor="otp" className="sr-only">OTP</label>
+               <input
+                   id="otp"
+                   name="otp"
+                   type="text"
+                   inputMode="numeric"
+                   maxLength={4}
+                   required
+                   value={otp}
+                   onChange={(e) => setOtp(e.target.value.replace(/\D/g, ''))}
+                   className="w-full text-center tracking-[1em] py-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-200 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500"
+                   placeholder="----"
+               />
+           </div>
+           <p className="text-sm text-gray-500 dark:text-gray-400">{T.authOtpInfo} <span className="font-bold">1234</span></p>
+           {error && <p className="text-sm text-red-500">{error}</p>}
+           <button
+               type="submit"
+               disabled={otp.length !== 4}
+               className="w-full bg-green-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-700 disabled:bg-gray-400 dark:disabled:bg-gray-500 disabled:cursor-not-allowed flex items-center justify-center transition"
+           >
+               {T.authVerifyOtp}
+           </button>
+           <button type="button" onClick={() => { setStep('phone'); setError(''); }} className="text-sm font-semibold text-gray-600 dark:text-gray-300 hover:underline">
+             {T.authChangePhone}
+           </button>
+       </form>
+      );
+    }
+  }
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900 p-4">
       <div className="w-full max-w-md mx-auto">
@@ -272,66 +383,7 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ onLogin, language }) => {
             <ChewingCowIcon className="w-24 h-24 mx-auto" />
             <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-100 mt-4">{T.title}</h1>
             <p className="text-gray-500 dark:text-gray-400 mt-1">{T.authSubtitle}</p>
-            
-            {step === 'phone' ? (
-                <form onSubmit={handlePhoneSubmit} className="mt-8 space-y-6">
-                    <div>
-                        <label htmlFor="phone" className="sr-only">{T.authPhonePlaceholder}</label>
-                        <div className="relative">
-                             <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500 dark:text-gray-400">+91</span>
-                             <input
-                                id="phone"
-                                name="phone"
-                                type="tel"
-                                autoComplete="tel"
-                                required
-                                value={phone}
-                                onChange={handlePhoneChange}
-                                className="w-full pl-12 pr-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-200 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500"
-                                placeholder={T.authPhonePlaceholder}
-                            />
-                        </div>
-                    </div>
-                    {error && <p className="text-sm text-red-500">{error}</p>}
-                    <button
-                        type="submit"
-                        disabled={phone.length !== 10}
-                        className="w-full bg-green-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-700 disabled:bg-gray-400 dark:disabled:bg-gray-500 disabled:cursor-not-allowed flex items-center justify-center transition"
-                    >
-                        {T.authSendOtp}
-                    </button>
-                </form>
-            ) : (
-                 <form onSubmit={handleOtpSubmit} className="mt-8 space-y-6">
-                    <div>
-                        <label htmlFor="otp" className="sr-only">OTP</label>
-                        <input
-                            id="otp"
-                            name="otp"
-                            type="text"
-                            inputMode="numeric"
-                            maxLength={4}
-                            required
-                            value={otp}
-                            onChange={(e) => setOtp(e.target.value.replace(/\D/g, ''))}
-                            className="w-full text-center tracking-[1em] py-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-200 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500"
-                            placeholder="----"
-                        />
-                    </div>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">{T.authOtpInfo} <span className="font-bold">1234</span></p>
-                    {error && <p className="text-sm text-red-500">{error}</p>}
-                    <button
-                        type="submit"
-                        disabled={otp.length !== 4}
-                        className="w-full bg-green-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-700 disabled:bg-gray-400 dark:disabled:bg-gray-500 disabled:cursor-not-allowed flex items-center justify-center transition"
-                    >
-                        {T.authVerifyOtp}
-                    </button>
-                    <button type="button" onClick={() => { setStep('phone'); setError(''); }} className="text-sm font-semibold text-gray-600 dark:text-gray-300 hover:underline">
-                      {T.authChangePhone}
-                    </button>
-                </form>
-            )}
+            {renderContent()}
         </div>
       </div>
     </div>

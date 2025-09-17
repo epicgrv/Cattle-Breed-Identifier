@@ -108,9 +108,12 @@ const englishTexts = {
   authSendOtp: 'Send OTP',
   authVerifyOtp: 'Verify OTP',
   authPhonePlaceholder: 'Phone Number',
+  authNamePlaceholder: 'Your Name',
+  authContinue: 'Continue',
   authOtpInfo: 'For demo, use OTP:',
   authChangePhone: 'Change phone number',
   authInvalidPhone: 'Please enter a valid 10-digit phone number.',
+  authInvalidName: 'Please enter your name.',
   authInvalidOtp: 'Invalid OTP. Please try again.',
 };
 
@@ -211,9 +214,12 @@ const hindiTexts = {
     authSendOtp: 'ओटीपी भेजें',
     authVerifyOtp: 'ओटीपी सत्यापित करें',
     authPhonePlaceholder: 'फ़ोन नंबर',
+    authNamePlaceholder: 'आपका नाम',
+    authContinue: 'जारी रखें',
     authOtpInfo: 'डेमो के लिए, ओटीपी का उपयोग करें:',
     authChangePhone: 'फ़ोन नंबर बदलें',
     authInvalidPhone: 'कृपया एक मान्य 10-अंकीय फ़ोन नंबर दर्ज करें।',
+    authInvalidName: 'कृपया अपना नाम दर्ज करें।',
     authInvalidOtp: 'अमान्य ओटीपी। कृपया पुन: प्रयास करें।',
 };
 
@@ -299,9 +305,12 @@ const marathiTexts = {
     authSendOtp: 'ओटीपी पाठवा',
     authVerifyOtp: 'ओटीपी सत्यापित करा',
     authPhonePlaceholder: 'फोन नंबर',
+    authNamePlaceholder: 'तुमचे नाव',
+    authContinue: 'पुढे जा',
     authOtpInfo: 'डेमोसाठी, ओटीपी वापरा:',
     authChangePhone: 'फोन नंबर बदला',
     authInvalidPhone: 'कृपया वैध १०-अंकी फोन नंबर प्रविष्ट करा.',
+    authInvalidName: 'कृपया तुमचे नाव टाका.',
     authInvalidOtp: 'अवैध ओटीपी. कृपया पुन्हा प्रयत्न करा.',
 };
 
@@ -387,9 +396,12 @@ const gujaratiTexts = {
     authSendOtp: 'OTP મોકલો',
     authVerifyOtp: 'OTP ચકાસો',
     authPhonePlaceholder: 'ફોન નંબર',
+    authNamePlaceholder: 'તમારું નામ',
+    authContinue: 'આગળ વધો',
     authOtpInfo: 'ડેમો માટે, OTP નો ઉપયોગ કરો:',
     authChangePhone: 'ફોન નંબર બદલો',
     authInvalidPhone: 'કૃપા કરીને માન્ય ૧૦-અંકનો ફોન નંબર દાખલ કરો.',
+    authInvalidName: 'કૃપા કરીને તમારું નામ દાખલ કરો.',
     authInvalidOtp: 'અમાન્ય OTP. કૃપા કરીને ફરી પ્રયાસ કરો.',
 };
 
@@ -475,9 +487,12 @@ const teluguTexts = {
     authSendOtp: 'OTP పంపండి',
     authVerifyOtp: 'OTPని ధృవీకరించండి',
     authPhonePlaceholder: 'ఫోన్ నంబర్',
+    authNamePlaceholder: 'మీ పేరు',
+    authContinue: 'కొనసాగించు',
     authOtpInfo: 'డెమో కోసం, OTPని ఉపయోగించండి:',
     authChangePhone: 'ఫోన్ నంబర్‌ను మార్చండి',
     authInvalidPhone: 'దయచేసి చెల్లుబాటు అయ్యే 10-అంకెల ఫోన్ నంబర్‌ను నమోదు చేయండి.',
+    authInvalidName: 'దయచేసి మీ పేరును నమోదు చేయండి.',
     authInvalidOtp: 'చెల్లని OTP. దయచేసి మళ్లీ ప్రయత్నించండి.',
 };
 
@@ -563,16 +578,19 @@ const malayalamTexts = {
     authSendOtp: 'ഒടിപി അയയ്ക്കുക',
     authVerifyOtp: 'ഒടിപി പരിശോധിക്കുക',
     authPhonePlaceholder: 'ഫോൺ നമ്പർ',
+    authNamePlaceholder: 'നിങ്ങളുടെ പേര്',
+    authContinue: 'തുടരുക',
     authOtpInfo: 'ഡെമോയ്ക്കായി, ഒടിപി ഉപയോഗിക്കുക:',
     authChangePhone: 'ഫോൺ നമ്പർ മാറ്റുക',
     authInvalidPhone: 'ദയവായി സാധുവായ 10 അക്ക ഫോൺ നമ്പർ നൽകുക.',
+    authInvalidName: 'ദയവായി നിങ്ങളുടെ പേര് നൽകുക.',
     authInvalidOtp: 'അസാധുവായ ഒടിപി. ദയവായി വീണ്ടും ശ്രമിക്കുക.',
 };
 
 const tamilTexts = {
     title: "பசு பெஹचान",
     subtitle: "AI கால்நடை மற்றும் எருமை இனம் அடையாளங்காட்டி",
-    uploadTitle: "ஒரு படத்தை பதிவேற்றவும்",
+    uploadTitle: "ഒരു படத்தை பதிவேற்றவும்",
     uploadSubtitle: "ഒരു மாடு அல்லது எருமையின் தெளிவான புகைப்படத்தை அதன் இனத்தை அடையாளம் காண பதிவேற்றவும்.",
     uploadButton: "படத்தைத் தேர்ந்தெடுக்கவும்",
     captureButton: "கேமராவிலிருந்து பிடிக்கவும்",
@@ -651,9 +669,12 @@ const tamilTexts = {
     authSendOtp: 'OTP அனுப்பு',
     authVerifyOtp: 'OTP சரிபார்க்கவும்',
     authPhonePlaceholder: 'தொலைபேசி எண்',
+    authNamePlaceholder: 'உங்கள் பெயர்',
+    authContinue: 'தொடரவும்',
     authOtpInfo: 'டெமோவிற்கு, OTP ஐப் பயன்படுத்தவும்:',
     authChangePhone: 'தொலைபேசி எண்ணை மாற்றவும்',
     authInvalidPhone: 'தயவுசெய்து சரியான 10 இலக்க தொலைபேசி எண்ணை உள்ளிடவும்.',
+    authInvalidName: 'தயவுசெய்து உங்கள் பெயரை உள்ளிடவும்.',
     authInvalidOtp: 'தவறான OTP. దయచేసి మళ్లీ ప్రయత్నించండి.',
 };
 
@@ -690,7 +711,7 @@ const kannadaTexts = {
     noResults: "ನಿಮ್ಮ ಹುಡುಕಾಟಕ್ಕೆ ಹೊಂದುವ ಯಾವುದೇ ತಳಿಗಳು ಕಂಡುಬಂದಿಲ್ಲ.",
     milkQuality: "ಹಾಲಿನ ಗುಣಮಟ್ಟ",
     fatContent: "ಕೊಬ್ಬು",
-    proteinContent: "ಪ್ರೋಟೀನ್",
+    proteinContent: "ಪ್ರೋಟೀన్",
     primaryLocation: "ಪ್ರಾಥಮಿಕ ಸ್ಥಳ",
     qualityRanking: "ಗುಣಮಟ್ಟದ ಶ್ರೇಯಾಂಕ",
     milkCapacity: "ಹಾಲು ಸಾಮರ್ಥ್ಯ",
@@ -739,9 +760,12 @@ const kannadaTexts = {
     authSendOtp: 'ಒಟಿಪಿ ಕಳುಹಿಸಿ',
     authVerifyOtp: 'ಒಟಿಪಿ ಪರಿಶೀಲಿಸಿ',
     authPhonePlaceholder: 'ದೂರವಾಣಿ ಸಂಖ್ಯೆ',
+    authNamePlaceholder: 'ನಿಮ್ಮ ಹೆಸರು',
+    authContinue: 'ಮುಂದುವರಿಸಿ',
     authOtpInfo: 'ಡೆಮೊಗಾಗಿ, ಒಟಿಪಿ ಬಳಸಿ:',
     authChangePhone: 'ದೂರವಾಣಿ ಸಂಖ್ಯೆಯನ್ನು ಬದಲಾಯಿಸಿ',
     authInvalidPhone: 'ದಯವಿಟ್ಟು ಮಾನ್ಯ 10-ಅಂಕಿಯ ದೂರವಾಣಿ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ.',
+    authInvalidName: 'ದಯವಿಟ್ಟು ನಿಮ್ಮ ಹೆಸರನ್ನು ನಮೂದಿಸಿ.',
     authInvalidOtp: 'ಅಮಾನ್ಯ ಒಟಿಪಿ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
 };
 
@@ -784,7 +808,7 @@ export const MOCK_BREED_ANALYTICS_DATA: BreedAnalyticsData[] = [
             [Language.GU]: '₹3,500 - ₹5,000 પ્રતિ પ્રાણી.',
             [Language.TE]: 'జంతువుకు ₹3,500 - ₹5,000.',
             [Language.ML]: 'ഒരു മൃഗത്തിന് ₹3,500 - ₹5,000.',
-            [Language.TA]: 'ஒரு விலங்குக்கு ₹3,500 - ₹5,000.',
+            [Language.TA]: 'ഒരു விலங்குக்கு ₹3,500 - ₹5,000.',
             [Language.KN]: 'ಪ್ರತಿ ಪ್ರಾಣಿಗೆ ₹3,500 - ₹5,000.',
         },
         breedingSeason: { 

@@ -64,8 +64,8 @@ const ProfileView: React.FC<ProfileViewProps> = ({ language, setLanguage, theme,
         <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
               <div>
-                  <h2 className="text-xl font-bold text-gray-800 dark:text-gray-100">User Details</h2>
-                  <p className="text-gray-500 dark:text-gray-400 mt-1">Logged in as: <span className="font-semibold text-gray-700 dark:text-gray-200">{currentUser.phone}</span></p>
+                  <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100">{currentUser.name}</h2>
+                  <p className="text-gray-500 dark:text-gray-400">{currentUser.phone}</p>
               </div>
               <button
                 onClick={onLogout}
